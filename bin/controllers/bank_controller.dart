@@ -32,7 +32,7 @@ class BankController {
 
     //verificação se ID de destinatário é válido
     if (!verifyId(idReceiver)) {
-      return false;
+      throw ReceiverIdInvalidException();
     }
 
     //Se IDs passam pela verificação, pega suas instâncias no banco de dados
