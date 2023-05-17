@@ -10,10 +10,13 @@ class BankController {
   addAccount( { required String id, required Account account } ) { _database[id] = account;}
 
 
+
+
   //Método de verificação de id:
   bool verifyId (String id) {
     return _database.containsKey(id);
   }
+
 
 
 
@@ -39,8 +42,18 @@ class BankController {
       return false;
     }
 
-  }
+    //Verificação se remetente possui saldo suficiente
+    if (accountSender.balance < ammount) {
+      return false;
+    }
 
+    //Se todas as verificações forem verdadeiras, efetuação da operação
+    accountSender.balance -= ammount;
+    accountReceiver.balance += ammount;
+
+    return true;
+
+  }
 
 }
 
