@@ -34,6 +34,11 @@ class BankController {
     Account accountSender = _database[idSender]!;
     Account accountReceiver = _database[idReceiver]!;
 
+    //verificação se remetente está autenticado
+    if (!accountSender.isAuthenticated) {
+      return false;
+    }
+
   }
 
 
