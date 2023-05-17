@@ -17,19 +17,18 @@ class BankController {
 
 
 
-//método para transação bancária entre duas contas com verificações (validade de IDs, autenticação dos usuários, saldo disponível etc)
+  //método para transação bancária entre duas contas com verificações (validade de IDs, autenticação dos usuários, saldo disponível etc)
   bool makeTransfer ( { required String idSender, required String idReceiver, required double ammount } ) {
 
-    { //verificação se ID de remetente é válido
-      if (!verifyId(idSender)) {
-        return false;
-      }
+    //verificação se ID de remetente é válido
+    if (!verifyId(idSender)) {
+      return false;
     }
 
-    { //verificação se ID de destinatário é válido
-      if (!verifyId(idReceiver)) {
-        return false;
-      }
+
+    //verificação se ID de destinatário é válido
+    if (!verifyId(idReceiver)) {
+      return false;
     }
 
     Account accountSender = _database[idSender]!;
