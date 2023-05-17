@@ -1,0 +1,3 @@
+class SenderIdInvalidException implements Exception {
+  
+}
