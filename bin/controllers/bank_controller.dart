@@ -34,6 +34,7 @@ class BankController {
       return false;
     }
 
+    //Se IDs passam pela verificação, pega suas instâncias no banco de dados
     Account accountSender = _database[idSender]!;
     Account accountReceiver = _database[idReceiver]!;
 
