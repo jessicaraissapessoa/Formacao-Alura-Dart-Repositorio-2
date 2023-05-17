@@ -34,15 +34,19 @@ void main() {
     }
 
   } on SenderIdInvalidException catch (e) {
+    print(e);
     print("O ID '${e.idSender}' do remetente não é um ID válido");
 
   } on ReceiverIdInvalidException catch (e) {
+    print(e);
     print("O ID '${e.idReceiver}' do destinatário não é um ID válido");
 
   } on SenderNotAuthenticatedException catch (e) {
+    print(e);
     print("O usuário remetente de ID '${e.idSender}' não está autenticado");
 
   } on SenderBalanceLowerThanamountException catch (e) {
+    print(e);
     print("O usuário de ID '${e.idSender}' tentou enviar ${e.amount} reais. No entanto, sua conta possui saldo de ${e.senderBalance} reais");
 
   } on Exception {
