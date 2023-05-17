@@ -41,12 +41,12 @@ class BankController {
 
     //verificação se remetente está autenticado
     if (!accountSender.isAuthenticated) {
-      return false;
+      throw SenderNotAuthenticatedException();
     }
 
     //Verificação se remetente possui saldo suficiente
     if (accountSender.balance < ammount) {
-      return false;
+      throw SenderBalanceLowerThanAmmountException();
     }
 
     //Se todas as verificações forem verdadeiras, efetuação da operação
