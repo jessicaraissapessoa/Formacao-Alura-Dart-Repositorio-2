@@ -32,7 +32,7 @@ class BankController {
     }
 
     Account accountSender = _database[idSender]!;
-    Account accountReceiver = _database[idReceiver];
+    Account accountReceiver = _database[idReceiver]!;
 
   }
 
