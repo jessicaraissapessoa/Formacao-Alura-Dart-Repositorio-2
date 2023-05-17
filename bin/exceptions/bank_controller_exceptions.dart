@@ -13,4 +13,10 @@ class SenderNotAuthenticatedException implements Exception {
   SenderNotAuthenticatedException({required this.idSender});
 }
 
-class SenderBalanceLowerThanAmmountException implements Exception {}
+class SenderBalanceLowerThanamountException implements Exception {
+  String idSender;
+  double senderBalance;
+  double amount;
+
+  SenderBalanceLowerThanamountException({required this.idSender, required this.senderBalance, required this.amount});
+}

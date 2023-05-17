@@ -27,10 +27,11 @@ void main() {
   try {
 
     bool result = bankController.makeTransfer(
-        idSender: "Kako", idReceiver: "Ricarth", ammount: 50);
+        idSender: "Kako", idReceiver: "Ricarth", amount: 50);
 
-    //Printando resultado
-    print(result);
+    if(result) {
+      print("Transação concluída com sucesso");
+    }
 
   } on SenderIdInvalidException catch (e) {
     print("O ID '${e.idSender}' do remetente não é um ID válido");
@@ -41,6 +42,11 @@ void main() {
   } on SenderNotAuthenticatedException catch (e) {
     print("O usuário remetente de ID '${e.idSender}' não está autenticado");
 
+  } on SenderBalanceLowerThanamountException catch (e) {
+    print("O usuário de ID '${e.idSender}' tentou enviar ${e.amount} reais. No entanto, sua conta possui saldo de ${e.senderBalance} reais");
+
+  } on Exception {
+    print("Algo deu errado");
   }
 
 

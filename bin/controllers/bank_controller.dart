@@ -22,7 +22,7 @@ class BankController {
 
 
   //método para transação bancária entre duas contas com verificações (validade de IDs, autenticação dos usuários, saldo disponível etc)
-  bool makeTransfer ( { required String idSender, required String idReceiver, required double ammount } ) {
+  bool makeTransfer ( { required String idSender, required String idReceiver, required double amount } ) {
 
     //verificação se ID de remetente é válido
     if (!verifyId(idSender)) {
@@ -45,13 +45,13 @@ class BankController {
     }
 
     //Verificação se remetente possui saldo suficiente
-    if (accountSender.balance < ammount) {
-      throw SenderBalanceLowerThanAmmountException();
+    if (accountSender.balance < amount) {
+      throw SenderBalanceLowerThanamountException(idSender: idSender, senderBalance: accountSender.balance, amount: amount);
     }
 
     //Se todas as verificações forem verdadeiras, efetuação da operação
-    accountSender.balance -= ammount;
-    accountReceiver.balance += ammount;
+    accountSender.balance -= amount;
+    accountReceiver.balance += amount;
 
     return true;
 
