@@ -4,6 +4,9 @@ import 'models/Account.dart';
 
 void main() {
 
+
+  assert(2 < 1, "Levantei o Assert");
+
   //Criação do banco
 
   BankController bankController = BankController();
